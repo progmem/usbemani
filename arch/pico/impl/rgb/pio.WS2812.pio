@@ -1,0 +1,43 @@
+;;; WS2812 PIO implementation
+.program ws2812_pio
+
+; Side-set pins will be used to toggle high/low
+.side_set 1
+
+
+.define public COMMON_LOW  5 ;  625ns low
+.define public COMMON_HIGH 3 ;  375ns high for 1 or 0
+.define public HIGH_BIT    2 ; +250ns high for 1
+
+
+loop:
+  nop             side 0
+  pull ifempty    side 0                  
+  out x, 1        side 0 [COMMON_LOW  - 1] ; Set pin low, read bit from OSR. (625ns)
+  jmp !x bit_low  side 1 [COMMON_HIGH - 1] ; Set pin high, check X. If X is 0, write a low bit. (375ns)
+bit_high:
+  jmp loop        side 1 [HIGH_BIT - 1] ; Hold pin high, jump to start. (250ns)
+bit_low:
+  nop             side 0 [HIGH_BIT - 1] ; Set pin low, do nothing. (250ns)
+.wrap
+
+% c-sdk {
+  static inline void ws2812_pio_program_init(PIO pio, uint sm, uint offset, uint ws2812_pin,
+float freq) {
+    pio_gpio_init(pio, ws2812_pin);
+    pio_sm_set_consecutive_pindirs(pio, sm, ws2812_pin, 1, true);
+
+    pio_sm_config config = ws2812_pio_program_get_default_config(offset);
+    sm_config_set_sideset_pins(&config, ws2812_pin);
+    sm_config_set_out_shift(&config, false, false, 8);
+    sm_config_set_fifo_join(&config, PIO_FIFO_JOIN_TX);
+
+    int cycles_per_bit = (ws2812_pio_COMMON_HIGH + ws2812_pio_COMMON_LOW + ws2812_pio_HIGH_BIT);
+    float div = clock_get_hz(clk_sys) / (freq * cycles_per_bit);
+
+    sm_config_set_clkdiv(&config, div);
+
+    pio_sm_init(pio, sm, offset, &config);
+    pio_sm_set_enabled(pio, sm, true);
+  }
+%}

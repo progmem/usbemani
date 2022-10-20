@@ -1,0 +1,86 @@
+;;; PlayStation SPI PIO implementation
+.program psx
+
+; JMP pin:   ATT/Chip Select
+; IN  pin 0: CMD/MOSI
+; IN  pin 1: CLK/Clock
+; SET pin 0: DAT/MISO (set pin since we need to handle as open-drain)
+
+; Both the PIO state machine and internal PSX state are reinitialized
+; any time the ATT line is not asserted, once per non-assertion.
+
+
+init:
+  mov isr, null           ; Clear both ISR and OSR
+  mov osr, null           ;
+  set pindirs, 0          ; Setup the default state for DAT
+  jmp poll_att            ; Begin processing unless ATT isn't asserted
+
+.wrap_target
+  wait 0 pin 1            ; Wait for CLK falling edge
+  jmp pin, init           ; Hold the state machine if ATT isn't asserted
+  out pindirs, 1          ; Push one bit of data to DAT
+  wait 1 pin 1            ; Wait for CLK rising edge
+  in pins, 1              ; Pull one bit of data from CMD
+  mov  y, !STATUS         ; Check if ISR is full
+  jmp !y, poll_att        ; Jump unless full
+  mov osr, null           ; Clear the OSR
+  irq 0                   ; Fire IRQ
+  wait 0 irq 0            ; Wait until IRQ is cleared
+  pull                    ; Pull in new data once ready
+  set pindirs, 0          ; Make sure the pin is set back to an input
+poll_att:
+  jmp pin, init           ; Hold the state machine if ATT isn't asserted
+.wrap
+
+
+% c-sdk {
+  static inline void psx_program_init(PIO pio, uint sm, const uint offset, const uint cmd_clk_base, const uint dat, const uint att) {
+    const uint cmd = cmd_clk_base;
+    const uint clk = cmd_clk_base + 1;
+
+    pio_sm_config config = psx_program_get_default_config(offset);
+
+    // Configure interrupts
+    pio_set_irq0_source_enabled(pio, pis_interrupt0, true);
+    pio_interrupt_clear(pio, sm);
+    
+    // Configure input
+    pio_gpio_init(pio, cmd);
+    pio_gpio_init(pio, clk);
+    sm_config_set_in_pins(&config, cmd);
+    pio_sm_set_consecutive_pindirs(pio, sm, cmd, 2, false);
+
+    sm_config_set_in_shift( // ISR
+      &config,
+      true,  // Shift bits right (incoming/LSB from the left?)
+      true,  // Automatically push from ISR to RX FIFO
+      8      // ISR considered full when 8 bits are available
+    );	
+
+
+    // Configure output
+    pio_gpio_init(pio, dat);
+    sm_config_set_out_pins(&config, dat, 1);
+    sm_config_set_set_pins(&config, dat, 1);
+    pio_sm_set_consecutive_pindirs(pio, sm, dat, 1, false);
+
+    sm_config_set_out_shift( // OSR
+      &config,
+      true, // Shift bits out right, LSB first
+      false, // Pull from FIFO automatically
+      32
+    );
+
+    // Configure jump
+    sm_config_set_jmp_pin(&config, att);
+
+    // Configure status register; set RX FIFO to all 1s when empty, 0 otherwise
+    sm_config_set_mov_status(&config, STATUS_RX_LESSTHAN, 1);
+
+    // Initialize the state machine
+    pio_sm_init(pio, sm, offset, &config);
+    // Enable
+    pio_sm_set_enabled(pio, sm, true);
+  }
+%}

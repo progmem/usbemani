@@ -1,0 +1,969 @@
+#pragma once
+#include <stdlib.h>
+#include "usb/strings.h"
+
+/*** Required Strings ***/
+/* Strings */
+const USB_STRING USB_ATTRIBUTES String_USBLanguage =
+  STRING_DESCRIPTOR_ARRAY(USB_LANGUAGE_ID);
+const USB_STRING USB_ATTRIBUTES String_USBVendor_USBemani  =
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_VENDOR_USBEMANI));
+const USB_STRING USB_ATTRIBUTES String_USBProduct_USBemani =
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_PRODUCT_USBEMANI));
+#if defined(KONAMI_CLOUD_ENABLED)
+const USB_STRING USB_ATTRIBUTES String_USBVendor_KonamiCloud  =
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_VENDOR_KONAMI_CLOUD));
+const USB_STRING USB_ATTRIBUTES String_USBProduct_KonamiCloud =
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_PRODUCT_KONAMI_CLOUD));
+#endif
+/* Lookup Table */
+const USB_STRING * const String_USB[] USB_ATTRIBUTES = {
+  [StringID_Language]  = &String_USBLanguage,
+  [StringID_Vendor_USBemani]  = &String_USBVendor_USBemani,
+  [StringID_Product_USBemani] = &String_USBProduct_USBemani,
+#if defined(KONAMI_CLOUD_ENABLED)
+  [StringID_Vendor_KonamiCloud]  = &String_USBVendor_KonamiCloud,
+  [StringID_Product_KonamiCloud] = &String_USBProduct_KonamiCloud,
+#endif
+};
+
+/*** Button Strings ***/
+/* Strings */
+#if (USB_BUTTONS_ACTIVE > 0)
+const USB_STRING USB_ATTRIBUTES String_Button_1 =
+#if defined(USB_STRING_BUTTON_1)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_BUTTON_1));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Button", "1"));
+#endif
+#endif
+#if (USB_BUTTONS_ACTIVE > 1)
+const USB_STRING USB_ATTRIBUTES String_Button_2 =
+#if defined(USB_STRING_BUTTON_2)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_BUTTON_2));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Button", "2"));
+#endif
+#endif
+#if (USB_BUTTONS_ACTIVE > 2)
+const USB_STRING USB_ATTRIBUTES String_Button_3 =
+#if defined(USB_STRING_BUTTON_3)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_BUTTON_3));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Button", "3"));
+#endif
+#endif
+#if (USB_BUTTONS_ACTIVE > 3)
+const USB_STRING USB_ATTRIBUTES String_Button_4 =
+#if defined(USB_STRING_BUTTON_4)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_BUTTON_4));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Button", "4"));
+#endif
+#endif
+#if (USB_BUTTONS_ACTIVE > 4)
+const USB_STRING USB_ATTRIBUTES String_Button_5 =
+#if defined(USB_STRING_BUTTON_5)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_BUTTON_5));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Button", "5"));
+#endif
+#endif
+#if (USB_BUTTONS_ACTIVE > 5)
+const USB_STRING USB_ATTRIBUTES String_Button_6 =
+#if defined(USB_STRING_BUTTON_6)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_BUTTON_6));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Button", "6"));
+#endif
+#endif
+#if (USB_BUTTONS_ACTIVE > 6)
+const USB_STRING USB_ATTRIBUTES String_Button_7 =
+#if defined(USB_STRING_BUTTON_7)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_BUTTON_7));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Button", "7"));
+#endif
+#endif
+#if (USB_BUTTONS_ACTIVE > 7)
+const USB_STRING USB_ATTRIBUTES String_Button_8 =
+#if defined(USB_STRING_BUTTON_8)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_BUTTON_8));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Button", "8"));
+#endif
+#endif
+#if (USB_BUTTONS_ACTIVE > 8)
+const USB_STRING USB_ATTRIBUTES String_Button_9 =
+#if defined(USB_STRING_BUTTON_9)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_BUTTON_9));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Button", "9"));
+#endif
+#endif
+#if (USB_BUTTONS_ACTIVE > 9)
+const USB_STRING USB_ATTRIBUTES String_Button_10 =
+#if defined(USB_STRING_BUTTON_10)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_BUTTON_10));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Button", "10"));
+#endif
+#endif
+#if (USB_BUTTONS_ACTIVE > 10)
+const USB_STRING USB_ATTRIBUTES String_Button_11 =
+#if defined(USB_STRING_BUTTON_11)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_BUTTON_11));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Button", "11"));
+#endif
+#endif
+#if (USB_BUTTONS_ACTIVE > 11)
+const USB_STRING USB_ATTRIBUTES String_Button_12 =
+#if defined(USB_STRING_BUTTON_12)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_BUTTON_12));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Button", "12"));
+#endif
+#endif
+#if (USB_BUTTONS_ACTIVE > 12)
+const USB_STRING USB_ATTRIBUTES String_Button_13 =
+#if defined(USB_STRING_BUTTON_13)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_BUTTON_13));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Button", "13"));
+#endif
+#endif
+#if (USB_BUTTONS_ACTIVE > 13)
+const USB_STRING USB_ATTRIBUTES String_Button_14 =
+#if defined(USB_STRING_BUTTON_14)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_BUTTON_14));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Button", "14"));
+#endif
+#endif
+#if (USB_BUTTONS_ACTIVE > 14)
+const USB_STRING USB_ATTRIBUTES String_Button_15 =
+#if defined(USB_STRING_BUTTON_15)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_BUTTON_15));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Button", "15"));
+#endif
+#endif
+#if (USB_BUTTONS_ACTIVE > 15)
+const USB_STRING USB_ATTRIBUTES String_Button_16 =
+#if defined(USB_STRING_BUTTON_16)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_BUTTON_16));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Button", "16"));
+#endif
+#endif
+/* Lookup Table */
+const USB_STRING * const String_Button[] USB_ATTRIBUTES = {
+  [0] = NULL,
+#if (USB_BUTTONS_ACTIVE > 0)
+  [0] = &String_Button_1,
+#endif
+#if (USB_BUTTONS_ACTIVE > 1)
+  [1] = &String_Button_2,
+#endif
+#if (USB_BUTTONS_ACTIVE > 2)
+  [2] = &String_Button_3,
+#endif
+#if (USB_BUTTONS_ACTIVE > 3)
+  [3] = &String_Button_4,
+#endif
+#if (USB_BUTTONS_ACTIVE > 4)
+  [4] = &String_Button_5,
+#endif
+#if (USB_BUTTONS_ACTIVE > 5)
+  [5] = &String_Button_6,
+#endif
+#if (USB_BUTTONS_ACTIVE > 6)
+  [6] = &String_Button_7,
+#endif
+#if (USB_BUTTONS_ACTIVE > 7)
+  [7] = &String_Button_8,
+#endif
+#if (USB_BUTTONS_ACTIVE > 8)
+  [8] = &String_Button_9,
+#endif
+#if (USB_BUTTONS_ACTIVE > 9)
+  [9] = &String_Button_10,
+#endif
+#if (USB_BUTTONS_ACTIVE > 10)
+  [10] = &String_Button_11,
+#endif
+#if (USB_BUTTONS_ACTIVE > 11)
+  [11] = &String_Button_12,
+#endif
+#if (USB_BUTTONS_ACTIVE > 12)
+  [12] = &String_Button_13,
+#endif
+#if (USB_BUTTONS_ACTIVE > 13)
+  [13] = &String_Button_14,
+#endif
+#if (USB_BUTTONS_ACTIVE > 14)
+  [14] = &String_Button_15,
+#endif
+#if (USB_BUTTONS_ACTIVE > 15)
+  [15] = &String_Button_16,
+#endif
+};
+
+/*** Encoder Strings ***/
+/* Strings */
+#if (USB_ENCODER_AXES_ACTIVE > 0)
+const USB_STRING USB_ATTRIBUTES String_Encoder_1 =
+#if defined(USB_STRING_ENCODER_1)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_ENCODER_1));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Encoder", "1"));
+#endif
+#endif
+#if (USB_ENCODER_AXES_ACTIVE > 1)
+const USB_STRING USB_ATTRIBUTES String_Encoder_2 =
+#if defined(USB_STRING_ENCODER_2)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_ENCODER_2));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Encoder", "2"));
+#endif
+#endif
+#if (USB_ENCODER_AXES_ACTIVE > 2)
+const USB_STRING USB_ATTRIBUTES String_Encoder_3 =
+#if defined(USB_STRING_ENCODER_3)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_ENCODER_3));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Encoder", "3"));
+#endif
+#endif
+#if (USB_ENCODER_AXES_ACTIVE > 3)
+const USB_STRING USB_ATTRIBUTES String_Encoder_4 =
+#if defined(USB_STRING_ENCODER_4)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_ENCODER_4));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Encoder", "4"));
+#endif
+#endif
+#if (USB_ENCODER_AXES_ACTIVE > 4)
+const USB_STRING USB_ATTRIBUTES String_Encoder_5 =
+#if defined(USB_STRING_ENCODER_5)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_ENCODER_5));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Encoder", "5"));
+#endif
+#endif
+/* Lookup Table */
+const USB_STRING * const String_Encoder[] USB_ATTRIBUTES = {
+  [0] = NULL,
+#if (USB_ENCODER_AXES_ACTIVE > 0)
+  [0] = &String_Encoder_1,
+#endif
+#if (USB_ENCODER_AXES_ACTIVE > 1)
+  [1] = &String_Encoder_2,
+#endif
+#if (USB_ENCODER_AXES_ACTIVE > 2)
+  [2] = &String_Encoder_3,
+#endif
+#if (USB_ENCODER_AXES_ACTIVE > 3)
+  [3] = &String_Encoder_4,
+#endif
+#if (USB_ENCODER_AXES_ACTIVE > 4)
+  [4] = &String_Encoder_5,
+#endif
+};
+
+/*** Axis Strings ***/
+/* Strings */
+#if (USB_GENERAL_AXES_ACTIVE > 0)
+const USB_STRING USB_ATTRIBUTES String_Axis_1 =
+#if defined(USB_STRING_AXIS_1)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_AXIS_1));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Axis", "1"));
+#endif
+#endif
+#if (USB_GENERAL_AXES_ACTIVE > 1)
+const USB_STRING USB_ATTRIBUTES String_Axis_2 =
+#if defined(USB_STRING_AXIS_2)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_AXIS_2));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Axis", "2"));
+#endif
+#endif
+#if (USB_GENERAL_AXES_ACTIVE > 2)
+const USB_STRING USB_ATTRIBUTES String_Axis_3 =
+#if defined(USB_STRING_AXIS_3)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_AXIS_3));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Axis", "3"));
+#endif
+#endif
+#if (USB_GENERAL_AXES_ACTIVE > 3)
+const USB_STRING USB_ATTRIBUTES String_Axis_4 =
+#if defined(USB_STRING_AXIS_4)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_AXIS_4));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Axis", "4"));
+#endif
+#endif
+#if (USB_GENERAL_AXES_ACTIVE > 4)
+const USB_STRING USB_ATTRIBUTES String_Axis_5 =
+#if defined(USB_STRING_AXIS_5)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_AXIS_5));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Axis", "5"));
+#endif
+#endif
+#if (USB_GENERAL_AXES_ACTIVE > 5)
+const USB_STRING USB_ATTRIBUTES String_Axis_6 =
+#if defined(USB_STRING_AXIS_6)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_AXIS_6));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Axis", "6"));
+#endif
+#endif
+#if (USB_GENERAL_AXES_ACTIVE > 6)
+const USB_STRING USB_ATTRIBUTES String_Axis_7 =
+#if defined(USB_STRING_AXIS_7)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_AXIS_7));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Axis", "7"));
+#endif
+#endif
+#if (USB_GENERAL_AXES_ACTIVE > 7)
+const USB_STRING USB_ATTRIBUTES String_Axis_8 =
+#if defined(USB_STRING_AXIS_8)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_AXIS_8));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Axis", "8"));
+#endif
+#endif
+#if (USB_GENERAL_AXES_ACTIVE > 8)
+const USB_STRING USB_ATTRIBUTES String_Axis_9 =
+#if defined(USB_STRING_AXIS_9)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_AXIS_9));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Axis", "9"));
+#endif
+#endif
+/* Lookup Table */
+const USB_STRING * const String_Axis[] USB_ATTRIBUTES = {
+  [0] = NULL,
+#if (USB_GENERAL_AXES_ACTIVE > 0)
+  [0] = &String_Axis_1,
+#endif
+#if (USB_GENERAL_AXES_ACTIVE > 1)
+  [1] = &String_Axis_2,
+#endif
+#if (USB_GENERAL_AXES_ACTIVE > 2)
+  [2] = &String_Axis_3,
+#endif
+#if (USB_GENERAL_AXES_ACTIVE > 3)
+  [3] = &String_Axis_4,
+#endif
+#if (USB_GENERAL_AXES_ACTIVE > 4)
+  [4] = &String_Axis_5,
+#endif
+#if (USB_GENERAL_AXES_ACTIVE > 5)
+  [5] = &String_Axis_6,
+#endif
+#if (USB_GENERAL_AXES_ACTIVE > 6)
+  [6] = &String_Axis_7,
+#endif
+#if (USB_GENERAL_AXES_ACTIVE > 7)
+  [7] = &String_Axis_8,
+#endif
+#if (USB_GENERAL_AXES_ACTIVE > 8)
+  [8] = &String_Axis_9,
+#endif
+};
+
+/*** Light Strings ***/
+/* Strings */
+#if (USB_LIGHTS_ACTIVE > 0)
+const USB_STRING USB_ATTRIBUTES String_Light_1 =
+#if defined(USB_STRING_LIGHT_1)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_LIGHT_1));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Light", "1"));
+#endif
+#endif
+#if (USB_LIGHTS_ACTIVE > 1)
+const USB_STRING USB_ATTRIBUTES String_Light_2 =
+#if defined(USB_STRING_LIGHT_2)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_LIGHT_2));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Light", "2"));
+#endif
+#endif
+#if (USB_LIGHTS_ACTIVE > 2)
+const USB_STRING USB_ATTRIBUTES String_Light_3 =
+#if defined(USB_STRING_LIGHT_3)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_LIGHT_3));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Light", "3"));
+#endif
+#endif
+#if (USB_LIGHTS_ACTIVE > 3)
+const USB_STRING USB_ATTRIBUTES String_Light_4 =
+#if defined(USB_STRING_LIGHT_4)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_LIGHT_4));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Light", "4"));
+#endif
+#endif
+#if (USB_LIGHTS_ACTIVE > 4)
+const USB_STRING USB_ATTRIBUTES String_Light_5 =
+#if defined(USB_STRING_LIGHT_5)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_LIGHT_5));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Light", "5"));
+#endif
+#endif
+#if (USB_LIGHTS_ACTIVE > 5)
+const USB_STRING USB_ATTRIBUTES String_Light_6 =
+#if defined(USB_STRING_LIGHT_6)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_LIGHT_6));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Light", "6"));
+#endif
+#endif
+#if (USB_LIGHTS_ACTIVE > 6)
+const USB_STRING USB_ATTRIBUTES String_Light_7 =
+#if defined(USB_STRING_LIGHT_7)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_LIGHT_7));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Light", "7"));
+#endif
+#endif
+#if (USB_LIGHTS_ACTIVE > 7)
+const USB_STRING USB_ATTRIBUTES String_Light_8 =
+#if defined(USB_STRING_LIGHT_8)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_LIGHT_8));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Light", "8"));
+#endif
+#endif
+#if (USB_LIGHTS_ACTIVE > 8)
+const USB_STRING USB_ATTRIBUTES String_Light_9 =
+#if defined(USB_STRING_LIGHT_9)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_LIGHT_9));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Light", "9"));
+#endif
+#endif
+#if (USB_LIGHTS_ACTIVE > 9)
+const USB_STRING USB_ATTRIBUTES String_Light_10 =
+#if defined(USB_STRING_LIGHT_10)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_LIGHT_10));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Light", "10"));
+#endif
+#endif
+#if (USB_LIGHTS_ACTIVE > 10)
+const USB_STRING USB_ATTRIBUTES String_Light_11 =
+#if defined(USB_STRING_LIGHT_11)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_LIGHT_11));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Light", "11"));
+#endif
+#endif
+#if (USB_LIGHTS_ACTIVE > 11)
+const USB_STRING USB_ATTRIBUTES String_Light_12 =
+#if defined(USB_STRING_LIGHT_12)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_LIGHT_12));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Light", "12"));
+#endif
+#endif
+#if (USB_LIGHTS_ACTIVE > 12)
+const USB_STRING USB_ATTRIBUTES String_Light_13 =
+#if defined(USB_STRING_LIGHT_13)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_LIGHT_13));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Light", "13"));
+#endif
+#endif
+#if (USB_LIGHTS_ACTIVE > 13)
+const USB_STRING USB_ATTRIBUTES String_Light_14 =
+#if defined(USB_STRING_LIGHT_14)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_LIGHT_14));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Light", "14"));
+#endif
+#endif
+#if (USB_LIGHTS_ACTIVE > 14)
+const USB_STRING USB_ATTRIBUTES String_Light_15 =
+#if defined(USB_STRING_LIGHT_15)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_LIGHT_15));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Light", "15"));
+#endif
+#endif
+#if (USB_LIGHTS_ACTIVE > 15)
+const USB_STRING USB_ATTRIBUTES String_Light_16 =
+#if defined(USB_STRING_LIGHT_16)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_LIGHT_16));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("Light", "16"));
+#endif
+#endif
+/* Lookup Table */
+const USB_STRING * const String_Light[] USB_ATTRIBUTES = {
+  [0] = NULL,
+#if (USB_LIGHTS_ACTIVE > 0)
+  [0] = &String_Light_1,
+#endif
+#if (USB_LIGHTS_ACTIVE > 1)
+  [1] = &String_Light_2,
+#endif
+#if (USB_LIGHTS_ACTIVE > 2)
+  [2] = &String_Light_3,
+#endif
+#if (USB_LIGHTS_ACTIVE > 3)
+  [3] = &String_Light_4,
+#endif
+#if (USB_LIGHTS_ACTIVE > 4)
+  [4] = &String_Light_5,
+#endif
+#if (USB_LIGHTS_ACTIVE > 5)
+  [5] = &String_Light_6,
+#endif
+#if (USB_LIGHTS_ACTIVE > 6)
+  [6] = &String_Light_7,
+#endif
+#if (USB_LIGHTS_ACTIVE > 7)
+  [7] = &String_Light_8,
+#endif
+#if (USB_LIGHTS_ACTIVE > 8)
+  [8] = &String_Light_9,
+#endif
+#if (USB_LIGHTS_ACTIVE > 9)
+  [9] = &String_Light_10,
+#endif
+#if (USB_LIGHTS_ACTIVE > 10)
+  [10] = &String_Light_11,
+#endif
+#if (USB_LIGHTS_ACTIVE > 11)
+  [11] = &String_Light_12,
+#endif
+#if (USB_LIGHTS_ACTIVE > 12)
+  [12] = &String_Light_13,
+#endif
+#if (USB_LIGHTS_ACTIVE > 13)
+  [13] = &String_Light_14,
+#endif
+#if (USB_LIGHTS_ACTIVE > 14)
+  [14] = &String_Light_15,
+#endif
+#if (USB_LIGHTS_ACTIVE > 15)
+  [15] = &String_Light_16,
+#endif
+};
+
+/*** RGB Strings ***/
+/* Strings */
+#if (USB_RGB_ACTIVE > 0)
+const USB_STRING USB_ATTRIBUTES String_RGB_1_R =
+#if defined(USB_STRING_RGB_1)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_1 " [R]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "1 [R]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_1_G =
+#if defined(USB_STRING_RGB_1)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_1 " [G]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "1 [G]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_1_B =
+#if defined(USB_STRING_RGB_1)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_1 " [B]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "1 [B]"));
+#endif
+#endif
+#if (USB_RGB_ACTIVE > 1)
+const USB_STRING USB_ATTRIBUTES String_RGB_2_R =
+#if defined(USB_STRING_RGB_2)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_2 " [R]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "2 [R]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_2_G =
+#if defined(USB_STRING_RGB_2)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_2 " [G]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "2 [G]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_2_B =
+#if defined(USB_STRING_RGB_2)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_2 " [B]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "2 [B]"));
+#endif
+#endif
+#if (USB_RGB_ACTIVE > 2)
+const USB_STRING USB_ATTRIBUTES String_RGB_3_R =
+#if defined(USB_STRING_RGB_3)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_3 " [R]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "3 [R]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_3_G =
+#if defined(USB_STRING_RGB_3)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_3 " [G]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "3 [G]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_3_B =
+#if defined(USB_STRING_RGB_3)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_3 " [B]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "3 [B]"));
+#endif
+#endif
+#if (USB_RGB_ACTIVE > 3)
+const USB_STRING USB_ATTRIBUTES String_RGB_4_R =
+#if defined(USB_STRING_RGB_4)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_4 " [R]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "4 [R]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_4_G =
+#if defined(USB_STRING_RGB_4)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_4 " [G]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "4 [G]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_4_B =
+#if defined(USB_STRING_RGB_4)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_4 " [B]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "4 [B]"));
+#endif
+#endif
+#if (USB_RGB_ACTIVE > 4)
+const USB_STRING USB_ATTRIBUTES String_RGB_5_R =
+#if defined(USB_STRING_RGB_5)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_5 " [R]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "5 [R]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_5_G =
+#if defined(USB_STRING_RGB_5)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_5 " [G]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "5 [G]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_5_B =
+#if defined(USB_STRING_RGB_5)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_5 " [B]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "5 [B]"));
+#endif
+#endif
+#if (USB_RGB_ACTIVE > 5)
+const USB_STRING USB_ATTRIBUTES String_RGB_6_R =
+#if defined(USB_STRING_RGB_6)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_6 " [R]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "6 [R]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_6_G =
+#if defined(USB_STRING_RGB_6)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_6 " [G]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "6 [G]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_6_B =
+#if defined(USB_STRING_RGB_6)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_6 " [B]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "6 [B]"));
+#endif
+#endif
+#if (USB_RGB_ACTIVE > 6)
+const USB_STRING USB_ATTRIBUTES String_RGB_7_R =
+#if defined(USB_STRING_RGB_7)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_7 " [R]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "7 [R]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_7_G =
+#if defined(USB_STRING_RGB_7)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_7 " [G]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "7 [G]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_7_B =
+#if defined(USB_STRING_RGB_7)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_7 " [B]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "7 [B]"));
+#endif
+#endif
+#if (USB_RGB_ACTIVE > 7)
+const USB_STRING USB_ATTRIBUTES String_RGB_8_R =
+#if defined(USB_STRING_RGB_8)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_8 " [R]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "8 [R]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_8_G =
+#if defined(USB_STRING_RGB_8)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_8 " [G]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "8 [G]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_8_B =
+#if defined(USB_STRING_RGB_8)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_8 " [B]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "8 [B]"));
+#endif
+#endif
+#if (USB_RGB_ACTIVE > 8)
+const USB_STRING USB_ATTRIBUTES String_RGB_9_R =
+#if defined(USB_STRING_RGB_9)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_9 " [R]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "9 [R]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_9_G =
+#if defined(USB_STRING_RGB_9)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_9 " [G]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "9 [G]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_9_B =
+#if defined(USB_STRING_RGB_9)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_9 " [B]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "9 [B]"));
+#endif
+#endif
+#if (USB_RGB_ACTIVE > 9)
+const USB_STRING USB_ATTRIBUTES String_RGB_10_R =
+#if defined(USB_STRING_RGB_10)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_10 " [R]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "10 [R]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_10_G =
+#if defined(USB_STRING_RGB_10)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_10 " [G]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "10 [G]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_10_B =
+#if defined(USB_STRING_RGB_10)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_10 " [B]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "10 [B]"));
+#endif
+#endif
+#if (USB_RGB_ACTIVE > 10)
+const USB_STRING USB_ATTRIBUTES String_RGB_11_R =
+#if defined(USB_STRING_RGB_11)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_11 " [R]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "11 [R]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_11_G =
+#if defined(USB_STRING_RGB_11)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_11 " [G]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "11 [G]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_11_B =
+#if defined(USB_STRING_RGB_11)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_11 " [B]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "11 [B]"));
+#endif
+#endif
+#if (USB_RGB_ACTIVE > 11)
+const USB_STRING USB_ATTRIBUTES String_RGB_12_R =
+#if defined(USB_STRING_RGB_12)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_12 " [R]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "12 [R]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_12_G =
+#if defined(USB_STRING_RGB_12)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_12 " [G]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "12 [G]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_12_B =
+#if defined(USB_STRING_RGB_12)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_12 " [B]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "12 [B]"));
+#endif
+#endif
+#if (USB_RGB_ACTIVE > 12)
+const USB_STRING USB_ATTRIBUTES String_RGB_13_R =
+#if defined(USB_STRING_RGB_13)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_13 " [R]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "13 [R]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_13_G =
+#if defined(USB_STRING_RGB_13)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_13 " [G]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "13 [G]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_13_B =
+#if defined(USB_STRING_RGB_13)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_13 " [B]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "13 [B]"));
+#endif
+#endif
+#if (USB_RGB_ACTIVE > 13)
+const USB_STRING USB_ATTRIBUTES String_RGB_14_R =
+#if defined(USB_STRING_RGB_14)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_14 " [R]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "14 [R]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_14_G =
+#if defined(USB_STRING_RGB_14)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_14 " [G]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "14 [G]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_14_B =
+#if defined(USB_STRING_RGB_14)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_14 " [B]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "14 [B]"));
+#endif
+#endif
+#if (USB_RGB_ACTIVE > 14)
+const USB_STRING USB_ATTRIBUTES String_RGB_15_R =
+#if defined(USB_STRING_RGB_15)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_15 " [R]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "15 [R]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_15_G =
+#if defined(USB_STRING_RGB_15)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_15 " [G]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "15 [G]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_15_B =
+#if defined(USB_STRING_RGB_15)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_15 " [B]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "15 [B]"));
+#endif
+#endif
+#if (USB_RGB_ACTIVE > 15)
+const USB_STRING USB_ATTRIBUTES String_RGB_16_R =
+#if defined(USB_STRING_RGB_16)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_16 " [R]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "16 [R]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_16_G =
+#if defined(USB_STRING_RGB_16)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_16 " [G]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "16 [G]"));
+#endif
+const USB_STRING USB_ATTRIBUTES String_RGB_16_B =
+#if defined(USB_STRING_RGB_16)
+  STRING_DESCRIPTOR(WIDE_STRING(USB_STRING_RGB_16 " [B]"));
+#else
+  STRING_DESCRIPTOR(WIDE_FALLBACK("RGB", "16 [B]"));
+#endif
+#endif
+/* Lookup Table */
+const USB_STRING * const String_RGB[] USB_ATTRIBUTES = {
+  [0] = NULL,
+#if (USB_RGB_ACTIVE > 0)
+  [0] = &String_RGB_1_R,
+  [1] = &String_RGB_1_G,
+  [2] = &String_RGB_1_B,
+#endif
+#if (USB_RGB_ACTIVE > 1)
+  [3] = &String_RGB_2_R,
+  [4] = &String_RGB_2_G,
+  [5] = &String_RGB_2_B,
+#endif
+#if (USB_RGB_ACTIVE > 2)
+  [6] = &String_RGB_3_R,
+  [7] = &String_RGB_3_G,
+  [8] = &String_RGB_3_B,
+#endif
+#if (USB_RGB_ACTIVE > 3)
+  [9] = &String_RGB_4_R,
+  [10] = &String_RGB_4_G,
+  [11] = &String_RGB_4_B,
+#endif
+#if (USB_RGB_ACTIVE > 4)
+  [12] = &String_RGB_5_R,
+  [13] = &String_RGB_5_G,
+  [14] = &String_RGB_5_B,
+#endif
+#if (USB_RGB_ACTIVE > 5)
+  [15] = &String_RGB_6_R,
+  [16] = &String_RGB_6_G,
+  [17] = &String_RGB_6_B,
+#endif
+#if (USB_RGB_ACTIVE > 6)
+  [18] = &String_RGB_7_R,
+  [19] = &String_RGB_7_G,
+  [20] = &String_RGB_7_B,
+#endif
+#if (USB_RGB_ACTIVE > 7)
+  [21] = &String_RGB_8_R,
+  [22] = &String_RGB_8_G,
+  [23] = &String_RGB_8_B,
+#endif
+#if (USB_RGB_ACTIVE > 8)
+  [24] = &String_RGB_9_R,
+  [25] = &String_RGB_9_G,
+  [26] = &String_RGB_9_B,
+#endif
+#if (USB_RGB_ACTIVE > 9)
+  [27] = &String_RGB_10_R,
+  [28] = &String_RGB_10_G,
+  [29] = &String_RGB_10_B,
+#endif
+#if (USB_RGB_ACTIVE > 10)
+  [30] = &String_RGB_11_R,
+  [31] = &String_RGB_11_G,
+  [32] = &String_RGB_11_B,
+#endif
+#if (USB_RGB_ACTIVE > 11)
+  [33] = &String_RGB_12_R,
+  [34] = &String_RGB_12_G,
+  [35] = &String_RGB_12_B,
+#endif
+#if (USB_RGB_ACTIVE > 12)
+  [36] = &String_RGB_13_R,
+  [37] = &String_RGB_13_G,
+  [38] = &String_RGB_13_B,
+#endif
+#if (USB_RGB_ACTIVE > 13)
+  [39] = &String_RGB_14_R,
+  [40] = &String_RGB_14_G,
+  [41] = &String_RGB_14_B,
+#endif
+#if (USB_RGB_ACTIVE > 14)
+  [42] = &String_RGB_15_R,
+  [43] = &String_RGB_15_G,
+  [44] = &String_RGB_15_B,
+#endif
+#if (USB_RGB_ACTIVE > 15)
+  [45] = &String_RGB_16_R,
+  [46] = &String_RGB_16_G,
+  [47] = &String_RGB_16_B,
+#endif
+};
