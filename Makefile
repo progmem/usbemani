@@ -8,6 +8,7 @@ ALL_CONFIGS = $(shell find -s configs -type f -iname 'config.h' -exec dirname {}
 .PHONY: help list-boards list-controllers list-configs %
 
 %:
+	@mkdir -p ./build ./obj
 	$(eval TEST_TARGET_CONTROLLER = $(shell cut -d: -f1 <<< "$@::"))
 	$(eval TEST_TARGET_CONFIG     = $(shell cut -d: -f2 <<< "$@::"))
 	$(eval BUILD_TARGET_VARS      := $(or $(BUILD_TARGET_VARS),$(shell if [ ! -z "$(TEST_TARGET_CONTROLLER)" ]	&& [ ! -z "$(TEST_TARGET_CONFIG)" ]; then echo TARGET_CONTROLLER=$(TEST_TARGET_CONTROLLER) TARGET_CONFIG=$(TEST_TARGET_CONFIG); fi)))
