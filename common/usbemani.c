@@ -14,12 +14,13 @@ int main(void) {
   Encoder_Init();
   Light_Init();
   PSX_Init();
-  Quirks_Init();
   RGB_Init();
   Timer_Init();
 
-  // Wait a brief moment for initialized components to stabilize (10ms)
+  // Wait a brief moment for initialized components to stabilize before initializing anything else
   Arch_Stabilize();
+  // Initialize quirks
+  Quirks_Init();
 
   // Check if bootloader entry is requested
   Arch_BootloaderCheck();

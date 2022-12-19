@@ -10,11 +10,13 @@ Quirks_t quirks;
   for (uint8_t i = 0; i < sizeof(check_buttons); i++) { \
     const uint16_t mask = (1 << check_buttons[i]); \
     required_buttons |= mask; \
-    if (Button_GetRaw(check_buttons[i])) \
+    if (Button_GetRaw(check_buttons[i])) { \
       held_buttons |= mask; \
+    } \
   } \
-  if (held_buttons == required_buttons) \
+  if (held_buttons == required_buttons) { \
     quirks.QUIRK = true; \
+  } \
 }
 
 
