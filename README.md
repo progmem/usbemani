@@ -34,12 +34,49 @@ USBemani requires the setup and installation of a given architecture's toolchain
 * For `avr8` platforms, you will need `avr-gcc` and `make`.
 * For the Raspberry Pi `pico`, you will need `arm-none-eabi-gcc` and `cmake`.
 
-To get started:
+#### macOS
 
-* Clone this repository, making sure to `--recurse-submodules`. If you've already cloned the repository, you will need to do a `submodule init` and `submodule update`.
-* Run `make <controller>:<config>`, substituting `<controller>` and `<config>` .
+With `homebrew`, install the following:
 
-Using one of the examples above, running `make examples/arduino/pro-micro/iidx:with-psx-support` will build the Arduino Pro Micro example implementation of a IIDX controller, using a config that enables support for the Playstation and Playstation 2.
+```
+# For all
+brew install make git
+# For avr8
+brew tap osx-cross/avr
+brew install avr-gcc
+# For pico
+brew tap ArmMbed/homebrew-formulae
+brew install cmake arm-none-eabi-gcc
+# Clone this repository
+git clone https://github.com/progmem/usbemani --recurse-submodules
+cd ./usbemani
+# Build a controller!
+make examples/arduino/pro-micro/iidx:default
+make lain/mini-4:default
+```
+
+#### Linux
+
+```
+# Use your package manager to install git, make, and cmake, e.g. for Debian
+sudo apt install git make cmake
+# For avr8
+curl --location 'https://github.com/modm-io/avr-gcc/releases/download/v11.2.0/modm-avr-gcc.tar.bz2' --output gcc-avr-toolchain.tar
+sudo mkdir /opt/gcc-avr
+sudo tar -C /opt/gcc-avr/ -xf gcc-avr-toolchain.tar --strip-components 1
+echo 'export PATH=$PATH:/opt/gcc-avr/bin' >> ~/.profile
+# For pico, install the 10.3-2021.10 version of the ARM toolchain
+curl --location 'https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2' --output gcc-arm-none-eabi-toolchain.tar
+sudo mkdir /opt/gcc-arm-none-eabi
+sudo tar -C /opt/gcc-arm-none-eabi/ -xf gcc-arm-none-eabi-toolchain.tar --strip-components 1
+echo 'export PATH=$PATH:/opt/gcc-arm-none-eabi/bin' >> ~/.profile
+# Clone this repository
+git clone https://github.com/progmem/usbemani --recurse-submodules
+cd ./usbemani
+# Build a controller!
+make examples/arduino/pro-micro/iidx:default
+make lain/mini-4:default
+```
 
 ### What if I have an issue?
 
