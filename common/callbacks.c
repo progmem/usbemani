@@ -22,9 +22,3 @@ WEAK void CALLBACK_OnLightingDrawUSB(USB_OutputReport_t *output) {
   Light_SetAll(output->lights);
 #endif
 }
-
-// When our timer task can be run
-// TODO: Even with this being weak, somehow it's interfering with code placed in controller.c
-WEAK void CALLBACK_OnTimer(void) {
-  return;
-}

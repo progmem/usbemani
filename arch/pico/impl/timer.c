@@ -4,8 +4,7 @@
 repeating_timer_t    _task_timer;
 
 bool _impl_timer_wrapInterrupt(repeating_timer_t *rt) {
-  if (CALLBACK_OnTimer)
-    CALLBACK_OnTimer();
+  CALLBACK_OnTimer();
   return true;
 }
 

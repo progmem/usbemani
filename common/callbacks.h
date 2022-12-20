@@ -47,5 +47,4 @@ WEAK void CALLBACK_OnPlaystationInputRequest(PSX_Input_t *input);
 
 /*** Timer ***/
 // When our timer task can be run
-WEAK void CALLBACK_OnTimer(void);
-
+void CALLBACK_OnTimer(void);
