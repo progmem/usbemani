@@ -17,6 +17,5 @@ void _impl_timer_init() {
 }
 
 ISR(TIMER0_COMPA_vect) {
-  if (CALLBACK_OnTimer)
-    CALLBACK_OnTimer();
+  CALLBACK_OnTimer();
 }
