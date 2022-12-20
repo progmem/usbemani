@@ -1,5 +1,6 @@
 #include "usbemani.h"
 
+TimerTick_t _timer;
 HSV_Color_t _effect_global;
 
 USB_LightingHelper_t USB_LightingHelper = {
@@ -75,6 +76,8 @@ int main(void) {
 
 // 8kHz timer
 void CALLBACK_OnTimer() {
+  // Increment the tick timer
+  Timer_Tick();
   // Update the current status of RGB frame draws
   RGB_UpdateStatus();
   // Update the current status of traditional lighting frame draws
