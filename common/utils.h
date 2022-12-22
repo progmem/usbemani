@@ -1,4 +1,6 @@
 #pragma once
+#include <stdbool.h>
+#include <stdint.h>
 
 /*** Defines ***/
 #define Button_HeldExclusively(button_mask) \
@@ -35,10 +37,12 @@
 
 
 /*** Functions ***/
-// Given a current and max value, map the position in the range 0-255.
+// Given a current and max value, map the current value to the range 0-255 based on the max.
 static inline uint8_t Utils_RangeToU8(uint16_t curr, const uint16_t max) {
   const uint16_t reciprocal = (0xFFFF / max);
         uint16_t result     = curr * reciprocal;
 
   return result >> 8;
 }
+
+uint16_t Utils_Random(void);
