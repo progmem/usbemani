@@ -1,4 +1,4 @@
-// The Arduino Pro Micro is a general development board.
+// The Raspberry Pi Pico is a general development board.
 // The following provides a sample of user-customized code to USBemani.
 
 // All code should start by including the main "usbemani.h" file. This provides access to system functions

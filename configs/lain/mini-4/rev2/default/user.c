@@ -17,7 +17,7 @@ void CALLBACK_OnRGBDrawFallback() {
   const RGB_Color_t red   = {.r=128};
 
   // Clear the channel
-  RGB_Clear(0);
+  RGB_ClearAll(0);
   // Draw the keys
   for (uint8_t i = 0; i < 7; i++) {
     if (Button_Get(i))
@@ -36,7 +36,7 @@ void CALLBACK_OnRGBDrawFallback() {
 }
 
 void CALLBACK_OnRGBDrawUSB(USB_OutputReport_t *output) {
-  RGB_Clear(0);
+  RGB_ClearAll(0);
   // Draw the 7 keys
   for (int i = 0; i < 7; i++) {
     RGB_SetRange(0, (i * RGB_LEDS_PER_KEY), RGB_LEDS_PER_KEY, output->rgb[i]);
