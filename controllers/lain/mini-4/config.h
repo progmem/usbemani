@@ -15,4 +15,5 @@
 #define RGB_LED_TYPE          WS2812
 #define RGB_LEDS_PER_CHANNEL  (7 * CONTROLLER_RGB_LEDS_PER_KEY) + (4 * 1) + (CONTROLLER_RGB_LEDS_TURNTABLE)
 
+/*** Chain Inclusion ***/
 #include_next "config.h"

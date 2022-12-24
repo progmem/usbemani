@@ -18,6 +18,6 @@ extern PSX_Controller_t _psx;
 void _impl_psx_init(void);
 bool _impl_psx_addressed(void);
 
-#if defined(PSX_DRIVER)
+#if defined(PSX_DRIVER) && defined(PSX_ACTIVE)
 #include INCLUDE_IMPL(psx, PSX_DRIVER, h)
 #endif

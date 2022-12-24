@@ -13,6 +13,7 @@ INCLUDE_DIRS = $(foreach include,$(INCLUDES),-I$(include))
 
 F_USB         = $(F_CPU)
 OPTIMIZATION  = 2
+C_STANDARD    = gnu17
 CC_FLAGS     += -Werror -DMCU=$(MCU) -DUSE_LUFA_CONFIG_HEADER $(INCLUDE_DIRS)
 LD_FLAGS      =
 

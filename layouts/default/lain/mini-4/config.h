@@ -31,4 +31,4 @@
 #define QUIRK_IIDX_LR2_BUTTON_COMBO 1
 
 /*** Additional Includes ***/
-#include "labels.h"
+#include "usb_labels.h"
