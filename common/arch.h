@@ -2,6 +2,7 @@
 
 #include <stdint.h>
 #include "impl/arch.h"
+#include "error/arch.h"
 
 #include "button.h"
 
