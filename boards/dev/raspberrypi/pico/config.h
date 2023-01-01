@@ -1,9 +1,17 @@
 #pragma once
 // The Raspberry Pi Pico is a general development board.
 // The following describes the available capabilities of the Pico development board in a way that makes it easy to use in controller configurations.
+
+// Development boards receive a special marker to separate them from "production" boards.
+// This is done since development boards have overlap across nearly every device.
+// For example, channel "0" for any device (buttons, encoders, etc.) is pin 0.
+// This overlap makes it harder for dev boards to work with layouts versus production boards.
+#define BOARD_DEVELOPMENT
+
+#define ONBOARD_LED 25
+
 // This description is set up in a way to align Pico "GP" numbers with channels numbers.
 // Certain channels will not be available because of this alignment. These will be marked with "PIN_NC"
-
 #define BUTTON_DRIVER direct
 #define BUTTONS_AVAILABLE 29
 #define BUTTON_PINS \

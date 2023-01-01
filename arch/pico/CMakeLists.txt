@@ -27,15 +27,15 @@ target_compile_definitions(${TARGET_NAME} PUBLIC
   -DPICO_XOSC_STARTUP_DELAY_MULTIPLIER=64
 )
 
+
 add_definitions("-Wall -Werror")
 
+# set_property(TARGET ${TARGET_NAME} PROPERTY C_STANDARD 17)
 target_sources(${TARGET_NAME} PUBLIC
   ${SRC}
 )
 
 target_include_directories(${TARGET_NAME} PUBLIC
-  # ${ROOT_DIR}/arch/pico/impl/
-  # ${ROOT_DIR}/arch/pico/
   ${OBJ_DIR}/generated/pio/
   ${INCLUDE_DIRS}
   ${ROOT_DIR}/.

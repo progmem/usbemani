@@ -1,9 +1,15 @@
 #pragma once
 // The Arduino Pro Micro is a general development board.
 // The following describes the available capabilities of the Pro Micro development board in a way that makes it easy to use in controller configurations.
+
+// Development boards receive a special marker to separate them from "production" boards.
+// This is done since development boards have overlap across nearly every device.
+// For example, channel "0" for any device (buttons, encoders, etc.) is pin 0.
+// This overlap makes it harder for dev boards to work with layouts versus production boards.
+#define BOARD_DEVELOPMENT
+
 // This description is set up in a way to align Arduino pins numbers with the AVR pins.
 // Certain channels will not be available because of this alignment. These will be marked with "PIN_NC"
-
 // Our general development board example will use Arduino pin numbers.
 // USBemani expects AVR pin numbers (the chip used on the Pro Micro), so an additional file has been included to map these pins.
 #include "pin_mapping.h"

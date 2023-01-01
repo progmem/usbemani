@@ -9,23 +9,14 @@ USBemani's design allows it to support multiple microcontroller platforms, with 
 USBemani takes a "configuration first" principle, taking some inspiration from the QMK project by breaking down a given firmware build into the following three core components:
 
 * A `board` determines the availability of capabilities based on the design of the board, such as which microcontroller is used and what pins are made available to users.
-* A `controller` determines what capabilities should be used.
-* A `config` provides an additional layer of user customization, allowing for overrides and implementation of custom code.
+* A `controller` determines what capabilities and components are in use. This defines certain attributes about these components, such as the number of installed RGB LEDs and the PPR of the encoders.
+* A `layout` determines which board and controller are in use, and defines how controller components should be connected to the board. This also provides a home for user customizations, including custom code.
 
-Documentation on how to create new `boards`, `controllers`, and `configs` is in progress. Until then, it's suggested to review the following examples:
+Documentation on how to create new `boards`, `controllers`, and `layouts` is in progress. Until then, it's suggested to review the following examples:
 
-* For general-purpose development boards:
-
-  * `boards/dev/arduino/pro-micro` contains an example implementation of the Pro Micro development board.
-
-  * `controllers/examples/arduino/pro-micro/iidx` contains an example implementation of a IIDX controller using the Pro Micro.
-  * `configs/examples/arduino/pro-micro/iidx` contains three configuration examples for this IIDX controller.
-
-* For purpose-built boards:
-
-  * `boards/lain/dcfish/rev1` contains the definitions for a custom rhythm game PCB.
-  * `controllers/examples/lain/dcfish/rev1/iidx` contains an example implementation of a IIDX controller using this custom PCB.
-  * `configs/examples/lain/dcfish/rev1/iidx` contains multiple configurations for building the firmware depending on the encoder disk in use.
+  * `boards/dev` contains two development board examples: one for the Pro Micro and one for the Raspberry Pi Pico.
+  * `controllers/examples/iidx` contains two example IIDX controllers that match Konami's eAmusement Cloud controllers: one for a 'basic model' and another for a 'premium model'
+  * `layouts/examples/iidx` contains two examples on how to wire these controllers up to a given development board.
 
 ### Building USBemani
 
@@ -85,4 +76,3 @@ Once documentation has been completed, feel free to submit a Github Issue. Stand
 ### What happened to the old USBemani code?
 
 The old codebase is still available [here](https://github.com/progmem/usbemani-legacy) for archival purposes.
-

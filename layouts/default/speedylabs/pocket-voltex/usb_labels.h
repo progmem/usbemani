@@ -1,0 +1,22 @@
+#pragma once
+
+#define USB_STRING_BUTTON_1 "BT-A"
+#define USB_STRING_BUTTON_2 "BT-B"
+#define USB_STRING_BUTTON_3 "BT-C"
+#define USB_STRING_BUTTON_4 "BT-D"
+#define USB_STRING_BUTTON_5 "FX-L"
+#define USB_STRING_BUTTON_6 "FX-R"
+#define USB_STRING_BUTTON_7 "Start"
+
+#define USB_STRING_ENCODER_1 "VOL-L"
+#define USB_STRING_ENCODER_2 "VOL-R"
+
+#define USB_STRING_LIGHT_1 "BT-A"
+#define USB_STRING_LIGHT_2 "BT-B"
+#define USB_STRING_LIGHT_3 "BT-C"
+#define USB_STRING_LIGHT_4 "BT-D"
+#define USB_STRING_LIGHT_5 "FX-L"
+#define USB_STRING_LIGHT_6 "FX-R"
+#define USB_STRING_LIGHT_7 "Start"
+
+#define USB_STRING_RGB_1  "Controller"

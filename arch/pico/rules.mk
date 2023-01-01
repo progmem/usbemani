@@ -18,3 +18,8 @@ all: cmake_prep
 
 clean: cmake_prep
 	@cd $(OBJDIR) && make clean
+
+flash: flash_$(BUILD_OS)
+
+flash_Darwin:
+	@cp -X build/$(CLEAN_NAME).uf2 /Volumes/RPI-RP2/
