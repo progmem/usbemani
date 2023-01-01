@@ -18,7 +18,7 @@
 // The channels in use.
 // For our example, we'll use pins 0-6 for our keys, and pins 7-10 for our E1-E4 buttons.
 // USBemani will automatically map these in the order provided, so pin 0 becomes our USB "Button 1", and pin 10 becomes "Button 11".
-#define BUTTON_CHANNELS 0, 1, 2, 3, 4, 5, 6, 7, 8, 26, 27
+#define BUTTON_CHANNELS 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
 /*** Lights ***/
 // The channels in use.
