@@ -1,4 +1,4 @@
-WEAK void CALLBACK_OnPlaystationInputRequest(PSX_Input_t *input) {
+void CALLBACK_OnPlaystationInputRequest(PSX_Input_t *input) {
   const PSX_Button_t button_mapping[] = {
     PSX_Square,
     PSX_L1,

@@ -41,9 +41,7 @@ WEAK void CALLBACK_OnRGBDrawUSB(USB_OutputReport_t *output);
 // When fallback lighting is active, run this code to perform draws.
 WEAK void CALLBACK_OnRGBDrawFallback(void);
 
-/*** PSX ***/
-// When a PSX input packet is requested
-WEAK void CALLBACK_OnPlaystationInputRequest(PSX_Input_t *input);
+void CALLBACK_OnPlaystationInputRequest(PSX_Input_t *input);
 
 /*** Timer ***/
 // When our timer task can be run

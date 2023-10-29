@@ -15,6 +15,7 @@ int64_t _impl_psx_releaseAck(alarm_id_t id, void *user_data) {
   Pin_OutputLow(PSX_ACK_PIN);
   asm volatile("nop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\n");
   Pin_Input(PSX_ACK_PIN);
+
   return 0;
 }
 
@@ -49,7 +50,11 @@ void _impl_psx_handle(void) {
   // Clear both FIFOs and interrupts
   // Repopulate TX (since we only need to push 8 bits at a time)
   pio_interrupt_clear(PSX_PIO, 0);
-  irq_clear(PIO1_IRQ_0);
+
+  if (!_PSX_CONCAT(PSX_PIO))
+    irq_clear(PIO0_IRQ_0);
+  else
+    irq_clear(PIO1_IRQ_0);
 
   switch (_psx.index) {
   case 1:
@@ -73,8 +78,7 @@ void _impl_psx_handle(void) {
 }
 
 void _impl_psx_init(void) {
-
-  if (_PSX_CONCAT(PSX_PIO)) {
+  if (!_PSX_CONCAT(PSX_PIO)) {
     irq_set_exclusive_handler(PIO0_IRQ_0, _impl_psx_handle);
     irq_set_enabled(PIO0_IRQ_0, true);
   } else {
