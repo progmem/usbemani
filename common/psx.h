@@ -20,7 +20,7 @@ static inline void PSX_Task(void) {
   if (_impl_psx_addressed()) return;
 
   // Poll for new input
-  if (CALLBACK_OnPlaystationInputRequest && _psx.shouldPoll) {
+  if (_psx.shouldPoll) {
     // Capture input
     PSX_Input_t input = {
       .buttons = 0, .rx = 0, .ry = 0, .lx = 0, .ly = 0

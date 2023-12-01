@@ -73,6 +73,8 @@ poll_att:
     );
 
     // Configure jump
+    gpio_init(att);
+    gpio_set_dir(att, GPIO_IN);
     sm_config_set_jmp_pin(&config, att);
 
     // Configure status register; set RX FIFO to all 1s when empty, 0 otherwise
