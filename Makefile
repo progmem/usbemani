@@ -1,11 +1,11 @@
 SHELL = /bin/bash
 
-ALL_BOARDS = $(shell find boards -type f -iname 'config.h' -exec dirname {} \; | cut -d'/' -f2- | paste -s -d' ' -)
-ALL_CONTROLLERS = $(shell find controllers -type f -iname 'config.h' -exec dirname {} \; | cut -d'/' -f2- | paste -s -d' ' -)
-ALL_LAYOUTS = $(shell find layouts -type f -iname 'config.h' -exec dirname {} \; | cut -d'/' -f2- | paste -s -d' ' -)
+ALL_BOARDS = $(shell find boards -type f -iname 'config.h' -exec dirname {} \; | cut -d'/' -f2- | sort | paste -s -d' ' -)
+ALL_CONTROLLERS = $(shell find controllers -type f -iname 'config.h' -exec dirname {} \; | cut -d'/' -f2- | sort | paste -s -d' ' -)
+ALL_LAYOUTS = $(shell find layouts -type f -iname 'config.h' -exec dirname {} \; | cut -d'/' -f2- | sort | paste -s -d' ' -)
 
 .DEFAULT_GOAL := help
-.PHONY: help list-boards list-controllers list-configs %
+.PHONY: help list-boards list-controllers list-layouts %
 
 %:
 	@mkdir -p ./build ./obj
