@@ -12,7 +12,7 @@ extern _encoder_t _encoder[ENCODERS_ACTIVE];
 // Initialize the encoders
 static inline void Encoder_Init(void) {
 #if (ENCODERS_ACTIVE > 0)
-  for (uint8_t i = ENCODERS_ACTIVE; i < ENCODERS_ACTIVE; i++) {
+  for (uint8_t i = 0; i < ENCODERS_ACTIVE; i++) {
     _encoder[i].state.current = 0,
     _encoder[i].state.pending = 0,
     _encoder[i].state.timeout = 0;
