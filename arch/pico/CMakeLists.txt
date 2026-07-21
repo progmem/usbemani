@@ -79,6 +79,12 @@ target_link_libraries(${TARGET_NAME}
 pico_add_extra_outputs(${TARGET_NAME})
 
 # Relocate built files to the /build folder
-add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
-  COMMAND mv ${TARGET_NAME}.* ${ROOT_DIR}/build/
-)
+if (CMAKE_HOST_WIN32)
+  add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
+    COMMAND move ${TARGET_NAME}.* ${ROOT_DIR}/build/ > NUL
+  )
+else()
+  add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
+    COMMAND mv ${TARGET_NAME}.* ${ROOT_DIR}/build/
+  )
+endif()
